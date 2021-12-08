@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: rabbitmq-Spring
+
+#  rabbitmq:
+#    listener:
+#      simple:
+#        acknowledge-mode: manual  # 全局设置应答方式
+#        prefetch: 1  # 全局 设置 消费者 的 缓冲的消息 的数量
+#    publisher-returns: true  # 发布确认
+#    publisher-confirm-type: correlated
+
+server:
+  port: 8080
+
+
+logging:
+  level:
+    root: info

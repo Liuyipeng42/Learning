@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lyp.tacocloudspring.dao.TacoDao">
+
+    <insert id="saveTaco" useGeneratedKeys="true" keyProperty="id">
+        insert into taco (name, createdAt)
+        values (#{name}, #{createdAt})
+    </insert>
+
+    <insert id="saveIngredientToTaco">
+        insert into taco_ingredients (taco, ingredient)
+            value (#{tacoId}, #{ingredientId})
+    </insert>
+
+    <select id="getTacosByOrderId" resultType="com.lyp.tacocloudspring.entity.Taco">
+        select id, name, createdAt
+        from taco_order_tacos,
+             taco
+        where taco_order_tacos.taco = taco.id
+          and tacoOrder = #{orderId};
+    </select>
+
+    <select id="getTacosDesc12" resultType="com.lyp.tacocloudspring.entity.Taco">
+        select id, name, createdAt
+        from taco order by createdAt desc limit 12;
+    </select>
+
+</mapper>

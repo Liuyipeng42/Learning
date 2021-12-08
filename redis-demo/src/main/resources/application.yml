@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: Redis-practice
+
+  redis:
+    host: 127.0.0.1
+    port: 6379
+#    连接池
+#    lettuce:
+#      pool:
+#        max-active: 100

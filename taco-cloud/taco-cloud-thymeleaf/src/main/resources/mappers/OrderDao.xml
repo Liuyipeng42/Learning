@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="tacos.dao.OrderDao">
+
+    <insert id="saveOrder" useGeneratedKeys="true" keyProperty="id">
+        insert into taco_order (name, street, city, state, zip, ccNumber, ccExpiration, ccCVV, placedAt)
+         values (#{name}, #{street}, #{city}, #{state}, #{zip}, #{ccNumber}, #{ccExpiration}, #{ccCVV}, #{placedAt})
+    </insert>
+
+    <select id="findByUserOrderByPlacedAtDesc" resultType="tacos.domain.Order">
+        select * from taco_order where name = #{username} order by placedAt limit #{pageNum}, #{pageLength}
+    </select>
+
+    <insert id="saveTacoToOrder">
+        insert into taco_order_tacos (tacoOrder, taco)
+            value (#{orderId}, #{tacoId})
+    </insert>
+
+</mapper>

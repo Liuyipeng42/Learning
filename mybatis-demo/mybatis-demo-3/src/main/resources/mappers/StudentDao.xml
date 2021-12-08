@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.mybatis.demo.dao.StudentDao">
+
+    <!--  代码片段
+    代码片段可以实现 sql语句的复用
+    代码片段的定义  -->
+    <sql id="selectSql">
+        select * from student
+    </sql>
+    <!--  代码片段使用
+    <include refid="selectSql" />
+    refid是要使用的代码片段的 id -->
+
+    <!--  if 标签 -->
+    <!--
+     当传入的对象的 name属性不为空时，会在 sql语句之后加上 name = #{name}
+      -->
+    <select id="selectStudentsByName" resultType="com.mybatis.demo.domain.Student">
+        <include refid="selectSql" /> where
+        <if test="name != null and name != ''">
+            name = #{name}
+        </if>
+
+    </select>
+
+    <!--  where 标签 -->
+    <!--
+    当传入的对象的 name属性不为空时，会在 sql语句之后加上 name = #{name}
+    当传入的对象的 age属性大于 0时，会在 sql语句之后加上 and age > #{age}
+    但当只满足第二个条件时，sql语句会出现 ···where and··· 的语法错误的情况
+    此时 <where> 标签加上 WHERE并自动去掉多于的 and或 or
+    -->
+    <select id="selectStudentsByNameAge" resultType="com.mybatis.demo.domain.Student">
+        <include refid="selectSql" />
+        <where>
+            <if test="name != null and name != ''">
+                name = #{name}
+            </if>
+            <if test="age > 0">
+                and age > #{age}
+            </if>
+        </where>
+    </select>
+
+    <!--  foreach  -->
+    <!--
+      foreach标签参数：
+      collection：指明传入的数据类型
+      item：为每一部分命名
+      open：字符串开始字符
+      close：字符串结束字符
+      separator：字符串每一部分的分隔字符
+      -->
+    <!--  List<Integer>类型  -->
+    <select id="selectStudentsByIds" resultType="com.mybatis.demo.domain.Student">
+        <include refid="selectSql" /> where id in
+        <foreach collection="list" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </select>
+
+    <!--  List<Object>类型  -->
+    <select id="selectStudentsByStudentId" resultType="com.mybatis.demo.domain.Student">
+        <include refid="selectSql" /> where id in
+        <foreach collection="list" item="student" open="(" close=")" separator=",">
+            #{student.id}
+        </foreach>
+    </select>
+    <!--  以下代码有着相同的作用  -->
+    <!--
+    <select id="selectStudentsByStudentId" resultType="Student">
+        select * from student where id in (
+        <foreach collection="list" item="student">
+            #{student.id},
+        </foreach>
+        -1000 )
+    </select>
+     -->
+
+    <!--  分页pagehelper  -->
+    <select id="selectAllStudents" resultType="com.mybatis.demo.domain.Student">
+        <include refid="selectSql" />
+    </select>
+
+</mapper>

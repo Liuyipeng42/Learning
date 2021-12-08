@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="bd607af5-78fd-4078-859f-2ddf9b68dc5c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/1/cloud-demo/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/1/cloud-demo/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1/cloud-demo/eureka-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/1/cloud-demo/eureka-server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1/cloud-demo/eureka-server/src/main/java/cn/itcast/eureka/EurekaApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/1/cloud-demo/eureka-server/src/main/java/lyp/demo/eureka/EurekaApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1/cloud-demo/feign-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/1/cloud-demo/feign-api/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1/cloud-demo/feign-api/src/main/java/cn/itcast/feign/clients/UserClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/1/cloud-demo/feign-api/src/main/java/lyp/demo/feign/clients/UserClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1/cloud-demo/feign-api/src/main/java/cn/itcast/feign/config/DefaultFeignConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/1/cloud-demo/feign-api/src/main/java/lyp/demo/feign/config/DefaultFeignConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1/cloud-demo/feign-api/src/main/java/cn/itcast/feign/pojo/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/1/cloud-demo/feign-api/src/main/java/lyp/demo/feign/pojo/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1/cloud-demo/gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/1/cloud-demo/gateway/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1/cloud-demo/gateway/src/main/java/cn/itcast/gateway/AuthorizeFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/1/cloud-demo/gateway/src/main/java/lyp/demo/gateway/AuthorizeFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1/cloud-demo/gateway/src/main/java/cn/itcast/gateway/GatewayApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/1/cloud-demo/gateway/src/main/java/lyp/demo/gateway/GatewayApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1/cloud-demo/gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/1/cloud-demo/gateway/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1/cloud-demo/order-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/1/cloud-demo/order-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1/cloud-demo/order-service/src/main/java/cn/itcast/order/OrderApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/1/cloud-demo/order-service/src/main/java/lyp/demo/order/OrderApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1/cloud-demo/order-service/src/main/java/cn/itcast/order/mapper/OrderMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/1/cloud-demo/order-service/src/main/java/lyp/demo/order/mapper/OrderMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1/cloud-demo/order-service/src/main/java/cn/itcast/order/pojo/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/1/cloud-demo/order-service/src/main/java/lyp/demo/order/pojo/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1/cloud-demo/order-service/src/main/java/cn/itcast/order/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/1/cloud-demo/order-service/src/main/java/lyp/demo/order/service/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1/cloud-demo/order-service/src/main/java/cn/itcast/order/web/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/1/cloud-demo/order-service/src/main/java/lyp/demo/order/web/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1/cloud-demo/order-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/1/cloud-demo/order-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1/cloud-demo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/1/cloud-demo/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1/cloud-demo/user-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/1/cloud-demo/user-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1/cloud-demo/user-service/src/main/java/cn/itcast/user/UserApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/1/cloud-demo/user-service/src/main/java/lyp/demo/user/UserApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1/cloud-demo/user-service/src/main/java/cn/itcast/user/config/PatternProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/1/cloud-demo/user-service/src/main/java/lyp/demo/user/config/PatternProperties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1/cloud-demo/user-service/src/main/java/cn/itcast/user/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/1/cloud-demo/user-service/src/main/java/lyp/demo/user/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1/cloud-demo/user-service/src/main/java/cn/itcast/user/pojo/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/1/cloud-demo/user-service/src/main/java/lyp/demo/user/pojo/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1/cloud-demo/user-service/src/main/java/cn/itcast/user/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/1/cloud-demo/user-service/src/main/java/lyp/demo/user/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1/cloud-demo/user-service/src/main/java/cn/itcast/user/web/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/1/cloud-demo/user-service/src/main/java/lyp/demo/user/web/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1/cloud-demo/user-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/1/cloud-demo/user-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1/cloud-demo/user-service/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/1/cloud-demo/user-service/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2/cloud-demo/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/2/cloud-demo/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2/cloud-demo/gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/2/cloud-demo/gateway/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2/cloud-demo/gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/2/cloud-demo/gateway/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2/cloud-demo/order-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/2/cloud-demo/order-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2/cloud-demo/order-service/src/main/java/cn/itcast/order/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/2/cloud-demo/order-service/src/main/java/cn/itcast/order/service/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2/cloud-demo/order-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/2/cloud-demo/order-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2/cloud-demo/user-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/2/cloud-demo/user-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2/cloud-demo/user-service/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/2/cloud-demo/user-service/src/main/resources/bootstrap.yml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/1/cloud-demo" />
+  </component>
+  <component name="ProjectId" id="1zgU8uxbNAmkdbtsuQHa6hMzRVg" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bd607af5-78fd-4078-859f-2ddf9b68dc5c" name="Changes" comment="" />
+      <created>1634569068607</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1634569068607</updated>
+      <workItem from="1634569070427" duration="28000" />
+      <workItem from="1635141326645" duration="12000" />
+      <workItem from="1638964706976" duration="13000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

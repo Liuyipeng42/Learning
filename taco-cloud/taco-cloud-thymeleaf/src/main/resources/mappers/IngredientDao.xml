@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="tacos.dao.IngredientDao">
+
+    <select id="findAllIngredients" resultType="tacos.domain.Ingredient">
+        select *
+        from ingredient
+    </select>
+
+    <select id="findIngredientById" resultType="tacos.domain.Ingredient">
+        select *
+        from ingredient
+        where id = #{id}
+    </select>
+
+    <select id="getIngredientsByTacoId" resultType="tacos.domain.Ingredient">
+        select id, name, type
+        from taco_ingredients,
+             ingredient
+        where taco_ingredients.ingredient = ingredient.id
+          and taco = #{tacoId};
+    </select>
+
+</mapper>

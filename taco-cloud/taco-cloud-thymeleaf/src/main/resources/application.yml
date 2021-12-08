@@ -1,0 +1,60 @@
+spring:
+
+  application:
+    # 应用名称
+    name: taco-cloud-exp
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    name: defaultDataSource
+    url: jdbc:mysql://localhost:3306/taco_cloud?serverTimezone=UTC
+    username: root
+    password: 121522734a
+    initialization-mode: always
+    platform: mysql
+    data: data.sql
+    sql-script-encoding: utf-8
+
+  thymeleaf:
+    cache: true
+    check-template: true
+    check-template-location: true
+    enabled: true
+    encoding: UTF-8
+    mode: HTML5
+    prefix: classpath:/templates/
+    suffix: .html
+
+    servlet:
+      content-type: text/html
+
+
+server:
+  port: 8080
+  # 启用 HTTPS
+  # 先使用 jdk 的keytool命令生成 keystore
+  # keytool -keystore d:/mykeys.jks -genkey -alias tomcat -keyalg RSA
+  # 然后在此配置
+#  ssl:
+#    key-store: D:/IntelliJ/Java_Projects/taco-cloud/src/main/resources/mykeys.jks
+#    key-store-password: letmein
+#    key-password: letmein
+
+
+mybatis:
+  config-location: classpath:/mybatis.xml
+  mapper-locations: classpath:/mappers/*.xml
+
+
+orderlist:
+  pageLength: 1
+
+logging:
+#  config: src/main/resources/logback.xml
+  level:
+    root: debug
+#
+#
+#taco:
+#  orders:
+#    pageSize: 10

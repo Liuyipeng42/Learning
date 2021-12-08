@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <properties resource="jdbc.properties" />
+
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING" />
+    </settings>
+    
+    <typeAliases>
+        <typeAlias type="com.mybatis.demo.domain.Student" alias="stu"/>
+        <package name="com/mybatis/demo/domain"/>
+    </typeAliases>
+
+    <environments default="mydev">
+        <environment id="mydev">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.user}"/>
+                <property name="password" value="${jdbc.passwd}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <mapper resource="com/mybatis/demo/dao/StudentDao.xml"/>
+    </mappers>
+</configuration>

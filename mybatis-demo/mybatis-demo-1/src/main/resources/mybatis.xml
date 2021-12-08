@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!--
+   mybatis的主配置文件： 主要定义了数据库的配置信息， sql映射文件的位置
+
+   1. 约束文件
+   <!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+     mybatis-3-config.dtd：约束文件的名称
+
+  2. configuration 根标签。
+-->
+
+<configuration>
+    <properties resource="jdbc.properties" />
+
+    <!--settings：控制mybatis全局行为-->
+    <settings>
+        <!--设置mybatis输出日志-->
+        <setting name="logImpl" value="STDOUT_LOGGING" />
+    </settings>
+
+    <!--定义别名-->
+    <typeAliases>
+        <!--将 type指定的类起别名为 alias指定的别名-->
+        <typeAlias type="com.mybatis.demo.domain.Student" alias="stu"/>
+        <!--name指定的是要使用的类所处的包，之后使用这些类时不需要再写前面的包名，直接写类名-->
+        <package name="com/mybatis/demo/domain"/>
+    </typeAliases>
+
+    <!--环境配置： 数据库的连接信息
+        default:必须和某个environment的id值一样。
+        告诉mybatis使用哪个数据库的连接信息。也就是访问哪个数据库
+    -->
+    <environments default="mydev">
+        <!-- environment : 一个数据库信息的配置， 环境
+             id:一个唯一值，自定义，表示环境的名称。
+        -->
+        <environment id="mydev">
+            <!--
+               transactionManager ：mybatis的事务类型
+                   type: JDBC(表示使用jdbc中的Connection对象的commit，rollback做事务处理)
+            -->
+            <transactionManager type="JDBC"/>
+            <!--
+               dataSource:表示数据源，连接数据库的
+                  type：表示数据源的类型， POOLED表示使用连接池
+            -->
+            <dataSource type="POOLED">
+                <!--
+                   driver, user, username, password 是固定的，不能自定义。
+                -->
+                <!--数据库的驱动类名-->
+                <property name="driver" value="${jdbc.driver}"/>
+                <!--连接数据库的url字符串-->
+                <property name="url" value="${jdbc.url}"/>
+                <!--访问数据库的用户名-->
+                <property name="username" value="${jdbc.user}"/>
+                <!--密码-->
+                <property name="password" value="${jdbc.passwd}"/>
+            </dataSource>
+        </environment>
+
+    </environments>
+
+    <!-- sql mapper(sql映射文件)的位置-->
+    <mappers>
+        <!--
+        Mapper配置的几种方法：
+        第一种（常用）
+            <mapper resource=" " /> resource指向的是相对于类路径下的目录
+            如：<mapper resource="sqlmap/User.xml" />
+        第二种
+            <mapper url=" " /> 使用完全限定路径
+            如：<mapper url="file:///D:\workspace\mybatis1\config\sqlmap\User.xml" />
+        第三种
+            <mapper class=" " /> 使用mapper接口类路径
+            如：<mapper class="cn.kang.mapper.UserMapper"/>
+            注意：此种方法要求mapper接口名称和mapper映射文件名称相同，且放在同一个目录中。
+        第四种（推荐）
+            <package name=""/>注册指定包下的所有mapper接口
+            如：<package name="cn.kang.mapper"/>
+            注意：此种方法要求mapper接口名称和mapper映射文件名称相同，且放在同一个目录中。
+        -->
+        <mapper resource="com/mybatis/demo/dao/StudentDao.xml"/>
+    </mappers>
+</configuration>
+
+

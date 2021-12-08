@@ -1,0 +1,30 @@
+#server:
+#  # 将 server.port 属性显式设置成了 0，会任选一个可用的端口
+#  port: 8443
+#  # 启用 HTTPS
+#  # 先使用 jdk 的keytool命令生成 keystore
+#  # keytool -keystore d:/mykeys.jks -genkey -alias tomcat -keyalg RSA
+#  # 然后在此配置
+#  ssl:
+#    key-store: D:/IntelliJ/Java_Projects/taco-cloud/src/main/resources/mykeys.jks
+#    key-store-password: letmein
+#    key-password: letmein
+#
+#spring:
+#  datasource:
+#    url: jdbc:mysql://localhost/taco_cloud?serverTimezone=UTC
+#    username: root
+#    password: 121522734a
+#    #    driver-class-name: com.mysql.jdbc.Driver
+#    data:
+#      - data.sql
+#
+#
+#logging:
+#  level:
+#    root: INFO
+#    #    设置为 WARN ，则低于 WARN 的信息都不会输出。
+#    org:
+#    springframework:
+#    security: DEBUG
+#

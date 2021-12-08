@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lyp.tacocloudspring.dao.OrderDao">
+
+    <insert id="saveOrder" useGeneratedKeys="true" keyProperty="id">
+        insert into taco_order (name, street, city, state, zip, ccNumber, ccExpiration, ccCVV, placedAt)
+         values (#{name}, #{street}, #{city}, #{state}, #{zip}, #{ccNumber}, #{ccExpiration}, #{ccCVV}, #{placedAt})
+    </insert>
+
+    <update id="updateOrder">
+        update taco_order set name=#{name}, street=#{street}, city=#{city}, state=#{state}, zip=#{zip},
+                              ccNumber=#{ccNumber}, ccExpiration=#{ccExpiration}, ccCVV=#{ccCVV}, placedAt=#{placedAt}
+        where id=#{id}
+    </update>
+
+    <select id="findOrderByUserByPlacedAtDesc" resultType="com.lyp.tacocloudspring.entity.Order">
+        select * from taco_order where name = #{username} order by placedAt limit #{pageNum}, #{pageLength}
+    </select>
+
+    <select id="findAllOrder" resultType="com.lyp.tacocloudspring.entity.Order">
+        select * from taco_order
+    </select>
+
+    <select id="findOrderById" resultType="com.lyp.tacocloudspring.entity.Order">
+        select * from taco_order where id = #{orderId}
+    </select>
+
+    <delete id="deleteOrderById">
+        delete from taco_order where id = #{orderId}
+    </delete>
+
+    <insert id="saveTacoToOrder">
+        insert into taco_order_tacos (tacoOrder, taco)
+            value (#{orderId}, #{tacoId})
+    </insert>
+
+</mapper>

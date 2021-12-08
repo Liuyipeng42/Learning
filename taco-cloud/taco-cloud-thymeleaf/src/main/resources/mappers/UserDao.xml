@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="tacos.dao.UserDao">
+
+    <select id="findByUsername" resultType="tacos.domain.User">
+        select *
+        from user where username = #{username};
+    </select>
+
+    <insert id="saveUser">
+        insert into user (id, username, password, fullname, street, city, state, zip, phonenumber)
+        values (#{id}, #{username}, #{password}, #{fullname}, #{street}, #{city}, #{state}, #{zip}, #{phoneNumber})
+    </insert>
+
+</mapper>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+
+    <!--  设置访问此网站时，自动打开的页面  -->
+    <welcome-file-list>
+        <welcome-file>navigation.jsp</welcome-file>
+    </welcome-file-list>
+    
+    <servlet>
+        <!--    声明一个变量存储 servlet接口的实现类的类路径    -->
+        <servlet-name>ResponseMessage</servlet-name>
+        <!--    servlet接口的实现类的类路径    -->
+        <servlet-class>
+            com.lyp.servlet_practice.controller.ResponseMessage
+        </servlet-class>
+        <!--
+        load-on-startup 标签可以设置 此Servlet可以在应用启动时加载，
+        它的值必须是一个整数，表示servlet被加载的先后顺序。
+        如果该元素的值为负数或者没有设置，则容器会当Servlet被请求时再加载。
+        如果值为正整数或者0时，表示容器在应用启动时就加载并初始化这个servlet，
+        值越小，servlet的优先级越高，就越先被加载。值相同时，容器就会自己选择顺序来加载。
+        -->
+        <load-on-startup>
+            42
+        </load-on-startup>
+    </servlet>
+
+    <!--
+    若不写这个映射，则用户需要使用 servlet接口的实现类的类路径 才能访问到网站
+    如：
+      https://localhost:8080/com/lyp/servlet_practice/controller/ServletExp
+
+    servlet-mapping 可以将 servlet接口的实现类的类路径 映射到 另一个任意的较为简单的路径
+    如下可以将
+        /com/lyp/servlet_practice/controller/ServletExp
+    映射为
+        /urlPath   （必须以 / 开头）
+      -->
+    <servlet-mapping>
+        <servlet-name>ResponseMessage</servlet-name>
+        <url-pattern>/ResponseMessage</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>UseLoadOnStartup</servlet-name>
+        <servlet-class>
+            com.lyp.servlet_practice.controller.UseLoadOnStartup
+        </servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>UseLoadOnStartup</servlet-name>
+        <url-pattern>/UseLoadOnStartup</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>Redirect</servlet-name>
+        <servlet-class>
+            com.lyp.servlet_practice.controller.Redirect
+        </servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Redirect</servlet-name>
+        <url-pattern>/Redirect</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ReadRequest</servlet-name>
+        <servlet-class>
+            com.lyp.servlet_practice.controller.ReadRequest
+        </servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ReadRequest</servlet-name>
+        <url-pattern>/ReadRequest</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GetParam</servlet-name>
+        <servlet-class>
+            com.lyp.servlet_practice.controller.GetParam
+        </servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>GetParam</servlet-name>
+        <url-pattern>/GetParam</url-pattern>
+    </servlet-mapping>
+    
+</web-app>
+

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Taco Cloud</title>
+  </head>
+  
+  <body>
+    <h1>Register</h1>
+    <img th:src="@{/images/TacoCloud.png}"/>    
+    
+    <form method="POST" th:action="@{/register}" id="registerForm" th:object="${registrationForm}">
+
+<!--      for 作用是 在点击label 时 会自动将焦点移动到绑定的 元素上-->
+        <label for="username">Username: </label>
+        <input type="text" th:field="*{username}" id="username"/><br/>
+
+        <label for="password">Password: </label>
+        <input type="password" th:field="*{password}" id="password"/><br/>
+
+        <label for="confirm">Confirm password: </label>
+        <input type="password" name="confirm" id="confirm"/><br/>
+
+        <label for="fullname">Full name: </label>
+        <input type="text" th:field="*{fullname}" id="fullname"/><br/>
+    
+        <label for="street">Street: </label>
+        <input type="text" th:field="*{street}" id="street"/><br/>
+    
+        <label for="city">City: </label>
+        <input type="text" th:field="*{city}" id="city"/><br/>
+    
+        <label for="state">State: </label>
+        <input type="text" th:field="*{state}" id="state"/><br/>
+    
+        <label for="zip">Zip: </label>
+        <input type="text" th:field="*{zip}" id="zip"/><br/>
+    
+        <label for="phone">Phone: </label>
+        <input type="text" th:field="*{phone}" id="phone"/><br/>
+    
+        <input type="submit" value="Register"/>
+    </form>
+    
+  </body>
+</html>

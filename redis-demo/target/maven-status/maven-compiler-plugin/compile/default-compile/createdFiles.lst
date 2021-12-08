@@ -1,0 +1,3 @@
+com/lyp/redispractice/RedisPracticeApplication.class
+com/lyp/redispractice/entity/User.class
+com/lyp/redispractice/config/RedisConfig.class

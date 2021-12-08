@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mybatis.demo.dao.StudentDao">
+    <!--
+       select:表示查询操作。
+       id: 你要执行的sql语法的唯一标识， mybatis会使用这个id的值来找到要执行的sql语句
+           可以自定义，但是要求你使用接口中的方法名称。
+
+       parameterType: dao接口中方法参数的数据类型
+           parameterType的值是java的数据类型全限定名称或者
+           是mybatis定义的别名（别名可以在官方文档中找到）
+           此参数是可选参数，可以没有
+
+       resultType:表示结果类型的， 是sql语句执行后得到ResultSet,遍历这个ResultSet得到java对象的类型。
+          值写的类型的全限定名称
+    -->
+
+    <!--单个参数-->
+    <!--返回值是map，
+        key是字段，value是记录对应字段的值，
+        此时最多只能查询一条记录-->
+    <select id="selectStudentsById" parameterType="java.lang.Integer" resultType="java.util.HashMap">
+        select id, name, email, age
+        from student
+        where id = #{StudentId}
+        order by id
+    </select>
+
+    <!--返回值是resultMap，
+        id: 自定义名称，表示所定义的resultMao
+        type: java；类型的全限定名称
+        可用于 数据库中的字段名与要转换的对象的属性名不同，也可以用 sql的列别名-->
+    <resultMap id="studentMap" type="com.mybatis.demo.domain.Student">
+        <!--列名和java属性的关系-->
+        <!--注解列，使用id标签
+            column: 列名
+            property: java类型的属性名-->
+
+        <!--主键字段-->
+        <id column="id" property="id"/>
+        <!--非主键字段-->
+        <result column="name" property="name"/>
+        <result column="email" property="email"/>
+        <result column="age" property="age"/>
+    </resultMap>
+
+    <select id="selectAllStudents" resultMap="studentMap">
+        select id, name, email, age
+        from student
+    </select>
+
+    <!--多个参数，使用@Param命名-->
+    <select id="selectStudentsByNameAge" resultType="Student">
+        select id, name, email, age
+        from student
+        where name = #{SelectName}
+          and age = #{SelectAge}
+        order by id
+    </select>
+
+    <!--多个参数， 使用java对象的属性值，作为参数实际值
+    使用对象语法： #{属性名,javaType=类型名称,jdbcType=数据类型} 很少用。
+                javaType:指java中的属性数据类型。
+                jdbcType:在数据库中的数据类型。
+                例如： #{paramName,javaType=java.lang.String,jdbcType=VARCHAR}
+
+    使用的简化方式： #{属性名}  ，javaType, jdbcType的值mybatis反射能获取。不用提供
+    -->
+    <select id="selectStudentsByNameId" resultType="stu">
+        select id, name, email, age
+        from student
+        where name = #{name, javaType=java.lang.String, jdbcType=VARCHAR}
+        and id = #{id}
+        order by id
+    </select>
+
+    <!--多个参数，使用Map , 使用语法 #{map的key}-->
+    <select id="selectStudentsByAgeId" resultType="com.mybatis.demo.domain.Student">
+        select id, name, email, age
+        from student
+        where age = #{SelectAge}
+           or id = #{SelectId}
+        order by id
+    </select>
+
+    <!--    <select id="countStudents" resultType="java.lang.Integer">-->
+    <select id="countStudents" resultType="int">
+        select count(name)
+        from student
+    </select>
+
+    <insert id="insertStudent">
+        insert into student
+        values (#{id}, #{name}, #{email}, #{age})
+    </insert>
+
+    <!--模糊查询-->
+    <select id="selectStudentsByNameLike" resultType="stu">
+        select id, name, email, age
+        from student
+        where name like #{name}
+
+    </select>
+<!--    elect id, name, email, age-->
+<!--    from student-->
+<!--    where name like "%" + #{name} + "%"-->
+
+    <!--
+    # 和 $
+    select id, name, email, age from student where id = #{studentId}
+    # 的结果： select idz name, email, age from student where id = ?
+
+    select id, name, email, age from student where id = ${studentId}
+    $ 的结果： select id, name, email, age from student where id = 1001
+    相当于： String sql = "select id, name, email, age from student where id = u + "1001"
+    是字符串的拼接
+
+    $: 可以替换表名或者列名，若能确定数据是安全的。可以使用$
+
+    #和S区别
+    1. #使用 ？ 在sql语句中有站位的作用，使用 PreparedStatement执行sql，效率高
+    2. #能够避免 sql注入，更安全。
+    3. $不使用占位符，是字符串连接方式，使用 Statement对象执行sql,效率低
+    4. $有 sql注入的风险，缺乏安全性。
+    5. $ 可以替换表名或者列名
+    -->
+
+</mapper>
